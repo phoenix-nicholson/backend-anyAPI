@@ -11,4 +11,16 @@ describe('backend-anyapi routes', () => {
   afterAll(() => {
     pool.end();
   });
+
+  it('controller should would', async () => {
+    const res = await request(app)
+      .post('/api/v1/onepiece')
+      .send({ name: 'Monkey D. Luffy', crew: 'Straw Hats' });
+
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      name: 'Monkey D. Luffy',
+      crew: 'Straw Hats',
+    });
+  });
 });
