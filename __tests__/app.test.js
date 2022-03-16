@@ -40,8 +40,9 @@ describe('backend-anyapi routes', () => {
     ]);
   });
 
-  it('Should be able to get character by id', async () => {
+  it.only('Should be able to get character by id', async () => {
     const charcter = await insert({
+      id: expect.any(String),
       name: 'Monkey D. Luffy',
       crew: 'Straw Hats',
     });
