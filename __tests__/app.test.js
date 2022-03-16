@@ -39,4 +39,13 @@ describe('backend-anyapi routes', () => {
       },
     ]);
   });
+
+  it('Should be able to get character by id', async () => {
+    const charcter = await insert({
+      name: 'Monkey D. Luffy',
+      crew: 'Straw Hats',
+    });
+    const res = await request(app).get(`/api/v1/onepiece`);
+    expect(res.body).toEqual(charcter);
+  });
 });
