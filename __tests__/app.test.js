@@ -12,7 +12,7 @@ describe('backend-anyapi routes', () => {
     pool.end();
   });
 
-  it('controller should would', async () => {
+  it('controller should work', async () => {
     const res = await request(app)
       .post('/api/v1/onepiece')
       .send({ name: 'Monkey D. Luffy', crew: 'Straw Hats' });
