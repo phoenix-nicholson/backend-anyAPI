@@ -50,14 +50,14 @@ describe('backend-anyapi routes', () => {
     expect(res.body).toEqual(character);
   });
 
-  it('should be able to update a character', async () => {
+  it.only('should be able to update a character', async () => {
     const character = await Character.insert({
       name: 'Monkey D. Luffy',
       crew: 'Straw Hats',
     });
-    const res = await (
-      await request(app).patch(`api/v1/onepiece/1`)
-    ).send({ crew: 'Straw Hats' });
+    const res = await request(app)
+      .patch(`/api/v1/onepiece/1`)
+      .send({ name: 'Monkey D. Luffy', crew: 'Straw Hat' });
 
     expect(res.body).toEqual(character);
   });
