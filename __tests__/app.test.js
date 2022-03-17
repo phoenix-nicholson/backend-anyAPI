@@ -61,4 +61,13 @@ describe('backend-anyapi routes', () => {
 
     expect(res.body).toEqual(character);
   });
+
+  it('should be able to delete a character', async () => {
+    const character = await Character.insert({
+      name: 'Monkey D. Luffy',
+      crew: 'Straw Hat',
+    });
+    const res = await request(app).delete(`/api/v1/onepiece/${character.id}`);
+    expect(res.body).toEqual(character);
+  });
 });
